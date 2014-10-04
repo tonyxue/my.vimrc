@@ -419,3 +419,4 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 execute pathogen#infect()
+autocmd vimenter * NERDTree
