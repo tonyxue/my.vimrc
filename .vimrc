@@ -54,7 +54,7 @@ filetype indent on
 set nu
 
 " Set font
-set guifont=Source\ Code\ Pro\ light:h18
+set guifont=Source\ Code\ Pro\ light:h16
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -142,7 +142,7 @@ set foldcolumn=1
 syntax enable 
 
 try
-    colorscheme desert
+    colorscheme monokai
 catch
 endtry
 
@@ -421,8 +421,12 @@ endfunction
 execute pathogen#infect()
 set tw=80
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 map <C-j> :JSLintUpdate<CR>
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
+
+" let g:JSLintHighlightErrorLine = 0
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let g:JSLintHighlightErrorLine = 0
